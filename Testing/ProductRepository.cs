@@ -17,5 +17,9 @@ namespace Testing
         {
             return _conn.Query<Product>("SELECT * FROM PRODUCTS;");
         }
+        public Product GetProductById(int id)
+        {
+            return _conn.QueryFirstOrDefault<Product>("SELECT * FROM PRODUCTS WHERE ProductID = @id", new { id = id });
+        }
     }
 }
